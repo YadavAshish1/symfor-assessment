@@ -130,6 +130,9 @@ curl -X POST http://localhost:8080/api/auth/register \
   -d '{"name": "Alice", "email": "alice@example.com", "password": "Password123", "role": "admin"}'
 ```
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2411ff10-51f6-410b-844c-87e95e1d48e8" />
+
+
 #### Login example
 
 ```bash
@@ -146,6 +149,7 @@ Response:
   "user": { "id": "...", "name": "Alice", "email": "alice@example.com", "role": "admin" }
 }
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fbc45495-997a-4dbc-bc91-e0cf194a912b" />
 
 ---
 
