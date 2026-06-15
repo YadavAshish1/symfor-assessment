@@ -169,6 +169,8 @@ Response:
   "refreshToken": "new_abc123..."
 }
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d310c6fc-ac8d-497f-b2c4-5d203f5b2e4a" />
+
 
 #### Logout example
 
@@ -185,6 +187,8 @@ Response:
   "message": "Logged out"
 }
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/da04e771-c4b3-403b-a0f9-694076584903" />
+
 
 #### Get Current User (Me) example
 
@@ -206,6 +210,7 @@ Response:
   }
 }
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8a0dfc0c-254b-4797-94e2-e356a13f42d8" />
 
 ---
 
@@ -240,6 +245,7 @@ Response:
   "pagination": { "page": 2, "limit": 5, "total": 23, "pages": 5 }
 }
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4156df47-cfcb-4448-adf2-77094a2a5fbc" />
 
 #### Upload example
 
@@ -249,6 +255,8 @@ curl -X POST http://localhost:8080/api/documents/upload \
   -F "title=Q4 Report" \
   -F "file=@/path/to/report.pdf"
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8cca9b2e-4805-4e8b-9935-73816e8d1b88" />
+
 
 #### Delete Document example
 
@@ -264,6 +272,7 @@ Response:
   "message": "Document deleted"
 }
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8db20553-80e4-4732-b930-fc394e9b7cd5" />
 
 ---
 
