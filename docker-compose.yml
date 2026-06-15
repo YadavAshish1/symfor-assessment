@@ -6,14 +6,14 @@ services:
     environment:
       NODE_ENV: development
       PORT: 8080
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/docmanager
+      DATABASE_URL: postgresql://neondb_owner:npg_cFvn1XpTPrO3@ep-quiet-king-adqp2w8r-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require
       JWT_SECRET: dev_jwt_secret_change_in_prod
       JWT_EXPIRES_IN: 15m
       REFRESH_TOKEN_SECRET: dev_refresh_secret_change_in_prod
       REFRESH_TOKEN_EXPIRES_IN: 7
       STORAGE: local
       UPLOAD_DIR: uploads
-      REDIS_URL: redis://redis:6379
+      REDIS_URL: rediss://default:gQAAAAAAAcpxAAIgcDIzNWNhY2Q5Y2NiN2Y0MmY1YmFjNzcxMzJiMjA2ZTcxZQ@communal-ewe-117361.upstash.io:6379
     volumes:
       - ./uploads:/app/uploads
     depends_on:

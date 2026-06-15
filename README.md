@@ -11,13 +11,13 @@ REST API for managing PDF documents with JWT authentication and role-based acces
 - PDF upload with file-type and size validation (max 10MB)
 - Document listing with pagination and search
 - Soft-delete (documents are never permanently removed from the DB)
-- Redis caching for list endpoints (auto-invalidated on writes)
+- Redis caching for list endpoints 
 - Local disk storage by default — swap to AWS S3 with one env var
 - Docker + Docker Compose setup (app + Postgres + Redis, zero manual config)
 
 ---
 
-## Quick Start (Docker)
+## Quick Start (Docker) , If docker is installed on system
 
 The easiest way to run everything:
 
