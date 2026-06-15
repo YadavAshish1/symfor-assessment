@@ -117,7 +117,8 @@ All endpoints live under `/api`. Protected routes require `Authorization: Bearer
 |--------|------|------|------|
 | POST | `/api/auth/register` | No | `{ name, email, password, role? }` |
 | POST | `/api/auth/login` | No | `{ email, password }` |
-| POST | `/api/auth/logout` | No | — |
+| POST | `/api/auth/refresh` | No | `{ refreshToken }` |
+| POST | `/api/auth/logout` | No | `{ refreshToken }` |
 | GET | `/api/auth/me` | Yes | — |
 
 **Roles:** `admin`, `manager`, `employee` (default: `employee`)
@@ -146,10 +147,65 @@ Response:
 {
   "success": true,
   "accessToken": "eyJ...",
+  "refreshToken": "abc123...",
   "user": { "id": "...", "name": "Alice", "email": "alice@example.com", "role": "admin" }
 }
 ```
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fbc45495-997a-4dbc-bc91-e0cf194a912b" />
+
+#### Refresh Token example
+
+```bash
+curl -X POST http://localhost:8080/api/auth/refresh \
+  -H "Content-Type: application/json" \
+  -d '{"refreshToken": "abc123..."}'
+```
+
+Response:
+```json
+{
+  "success": true,
+  "accessToken": "new_eyJ...",
+  "refreshToken": "new_abc123..."
+}
+```
+
+#### Logout example
+
+```bash
+curl -X POST http://localhost:8080/api/auth/logout \
+  -H "Content-Type: application/json" \
+  -d '{"refreshToken": "abc123..."}'
+```
+
+Response:
+```json
+{
+  "success": true,
+  "message": "Logged out"
+}
+```
+
+#### Get Current User (Me) example
+
+```bash
+curl -X GET http://localhost:8080/api/auth/me \
+  -H "Authorization: Bearer <token>"
+```
+
+Response:
+```json
+{
+  "success": true,
+  "user": {
+    "id": "...",
+    "name": "Alice",
+    "email": "alice@example.com",
+    "role": "admin",
+    "created_at": "..."
+  }
+}
+```
 
 ---
 
@@ -169,8 +225,11 @@ Response:
 | `limit` | `10` | Items per page (max 100) |
 | `search` | — | Case-insensitive title search |
 
+#### List Documents example
+
 ```bash
-GET /api/documents?page=2&limit=5&search=report
+curl -X GET "http://localhost:8080/api/documents?page=1&limit=10&search=report" \
+  -H "Authorization: Bearer <token>"
 ```
 
 Response:
@@ -189,6 +248,21 @@ curl -X POST http://localhost:8080/api/documents/upload \
   -H "Authorization: Bearer <token>" \
   -F "title=Q4 Report" \
   -F "file=@/path/to/report.pdf"
+```
+
+#### Delete Document example
+
+```bash
+curl -X DELETE http://localhost:8080/api/documents/123e4567-e89b-12d3-a456-426614174000 \
+  -H "Authorization: Bearer <token>"
+```
+
+Response:
+```json
+{
+  "success": true,
+  "message": "Document deleted"
+}
 ```
 
 ---
